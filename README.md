@@ -3,7 +3,7 @@
 mybiz.style is a template R package for implementing colour palettes and a ggplot2 theme.
 
 * Colour palettes based on [Dr Simon Jackson's Corporate Colour Palettes'](https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2).
-* ggplot themes inspired by the [Storytelling With Data style](http://www.storytellingwithdata.com/) and a burning desire to get font sizes consistent in my plots.
+* ggplot themes inspired by the [Storytelling With Data] (http://www.storytellingwithdata.com/) stlyle and a burning desire to get font sizes consistent in my plots.
 
 ## How To
 
@@ -15,4 +15,5 @@ mybiz.style is a template R package for implementing colour palettes and a ggplo
 
 ## TO DO
 
+* Properly Document
 * Automate prefix replacement if possible
