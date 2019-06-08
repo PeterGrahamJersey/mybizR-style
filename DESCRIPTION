@@ -1,0 +1,12 @@
+Package: mybiz.style
+Type: Package
+Title: MyBiz Style - a style package template
+Version: 0.1
+Author: Peter Graham
+Maintainer: Peter Graham <petergrahamjersey@gmail.com>
+Description: MyBiz Style provides a base for users to customise and access a
+    colour palette, ggplot theme and markdown template.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports: ggplot2
