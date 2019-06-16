@@ -1,27 +1,24 @@
-#' MyBiz branding and commonly used colours.
+#' Our colours.
 #'
-#' @source PrismJS Tomorrow Night Theme \url{https://prismjs.com/}
 #' @format A named vector of colours.
 #' \describe{
 #'  \item{Names}{Colour names}
 #'  \item{Values}{Hexcodes}
 #' }
-#' @examples
-#' \dontrun{
-#'  mybiz_colours
+#' @examples {
+#'  our_colours_raw
 #' }
-"mybiz_colours"
+"our_colours_raw"
 
-#' MyBiz branding and commonly used palettes.
+#' Our palettes.
 #'
 #' @format A list of colour palettes.
 #' \describe{
 #'  \item{Names}{Palette name}
-#'  \item{Values}{Vector of colour names in this palette. Should match names in mybiz_colours.}
+#'  \item{Values}{Vector of colour names in this palette. Should match names in \code{our_colours_raw.}}
 #' }
-#' @examples
-#' \dontrun{
-#'  mybiz_palettes
-#'  mybiz_cols(mybiz_palettes['main'])
+#' @examples {
+#'  our_palettes_raw
+#'  our_colours(our_palettes_raw['main'])
 #' }
-"mybiz_palettes"
+"our_palettes_raw"

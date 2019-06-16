@@ -1,12 +1,13 @@
-Package: mybiz.style
+Package: ouRstyle
 Type: Package
-Title: MyBiz Style - a style package template
+Title: ouRstyle: your colours and ggplot2 theme
 Version: 0.1
 Author: Peter Graham
 Maintainer: Peter Graham <petergrahamjersey@gmail.com>
-Description: MyBiz Style provides a base for users to customise and access a
-    colour palette, ggplot theme and markdown template.
+Description: ouRstyle provides a base for users to customise and access a
+    colour palette and ggplot theme.
 License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: ggplot2
+RoxygenNote: 6.0.1
