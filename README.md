@@ -10,9 +10,9 @@ ouRstyle provides a template allowing users to specify colours and colour palett
 ## How To
 
 * Copy/fork from this repo
-* Update `./data-raw/colours.R` with your colours and desired prefix and run it
-* Customise `./R/our_theme.R` to reflect how you want your plots to look
 * Optional: replace every mention of 'our_' with a prefix you prefer
+* Update `./data-raw/colours.R` with your colours and run it
+* Customise `./R/our_theme.R` to reflect how you want your plots to look
 * Build the package (CMD + SHIFT + B)
 * Share with others in your team, [Sharing Interal R Packages](https://support.rstudio.com/hc/en-us/articles/115000239587-Sharing-Internal-R-Packages)
 
