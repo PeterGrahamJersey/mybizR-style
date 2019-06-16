@@ -16,9 +16,7 @@ our_palettes_raw
 Our palettes.
 }
 \examples{
-{
  our_palettes_raw
- our_colours(our_palettes_raw['main'])
-}
+ our_colours(our_palettes_raw[['default']])
 }
 \keyword{datasets}

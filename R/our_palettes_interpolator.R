@@ -1,21 +1,20 @@
-
 #' Generates a function to interpolate our color palette.
 #'
-#' @return Returns a function with argument n where n is the number of colours to return.
 #' @source \url{https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2}
-#' @param palette Character name of palette in mybiz_palettes
+#' @param palette Character name of palette in our_palettes_raw
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments to pass to colorRampPalette()
-#' @examples {
-#'  our_palette_interpolator('hot')
-#'  our_palette_interpolator('hot')(10)
-#' }
+#' @return Returns a function that takes argument n where n is the number of colours to interpolate.
+#' @examples \dontrun{
+#'  our_palettes_interpolator('default')
+#'  our_palettes_interpolator('default')(10)
+#'  }
 #' @keywords internal
 our_palettes_interpolator <- function(palette = "main", reverse = FALSE, ...) {
   our_palettes_interpolator.validate(palette)
-  pal <- our_colors(our_palettes_raw[[palette]])
+  pal <- ouRstyle::our_colors(ouRstyle::our_palettes_raw[[palette]])
   if (reverse) pal <- rev(pal)
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 
 #' Error handling for our_palettes_interpolator
@@ -28,7 +27,7 @@ our_palettes_interpolator <- function(palette = "main", reverse = FALSE, ...) {
 #' 
 #' @keywords internal
 our_palettes_interpolator.validate <- function(palette) {
-  if (!is.element(palette, names(mybiz_palettes))) {
+  if (!is.element(palette, names(ouRstyle::our_palettes_raw))) {
     message(paste('Palette not found:', palette))
   }
 }

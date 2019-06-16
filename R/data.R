@@ -5,9 +5,8 @@
 #'  \item{Names}{Colour names}
 #'  \item{Values}{Hexcodes}
 #' }
-#' @examples {
+#' @examples
 #'  our_colours_raw
-#' }
 "our_colours_raw"
 
 #' Our palettes.
@@ -17,8 +16,7 @@
 #'  \item{Names}{Palette name}
 #'  \item{Values}{Vector of colour names in this palette. Should match names in \code{our_colours_raw.}}
 #' }
-#' @examples {
+#' @examples
 #'  our_palettes_raw
-#'  our_colours(our_palettes_raw['main'])
-#' }
+#'  our_colours(our_palettes_raw[['default']])
 "our_palettes_raw"

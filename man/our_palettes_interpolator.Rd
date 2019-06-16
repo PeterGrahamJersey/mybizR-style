@@ -10,22 +10,22 @@
 our_palettes_interpolator(palette = "main", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in mybiz_palettes}
+\item{palette}{Character name of palette in our_palettes_raw}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
 \item{...}{Additional arguments to pass to colorRampPalette()}
 }
 \value{
-Returns a function with argument n where n is the number of colours to return.
+Returns a function that takes argument n where n is the number of colours to interpolate.
 }
 \description{
 Generates a function to interpolate our color palette.
 }
 \examples{
-{
- our_palette_interpolator('hot')
- our_palette_interpolator('hot')(10)
-}
+\dontrun{
+ our_palettes_interpolator('default')
+ our_palettes_interpolator('default')(10)
+ }
 }
 \keyword{internal}

@@ -9,17 +9,30 @@ our_colours(...)
 
 our_colors(...)
 }
+\arguments{
+\item{\dots}{colour names in a comma separated or vector of strings}
+}
+\value{
+returns a named vector of hexcodes for the specified colours. If a colour is
+ not in \code{our_colours_raw} will have NA in that position and returns a warning message.
+}
 \description{
-@param ... colour names in a comma separated or vector of strings
- @examples {
-   our_colours_raw
-   our_colours('green', 'blue', 'green')
- }
- @source \url{https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2}
- @export
+Returns a named vecotr of hexcodes for the specified colours.
+Method from \url{https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2}.
 }
 \section{Functions}{
 \itemize{
-\item \code{our_colors}: Alias for \code{our_colours()}
+\item \code{our_colors}: alias for \code{our_colours()}
 }}
 
+\examples{
+ our_colours_raw
+ our_colours()
+ our_colours('green', 'blue', 'green')
+ our_colours('not a colour', 'also not a colour', 'green')
+ our_colors('blue')
+}
+\seealso{
+Other access our colours: \code{\link{our_palettes}},
+  \code{\link{our_scale}}
+}

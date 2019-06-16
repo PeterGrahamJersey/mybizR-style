@@ -2,7 +2,7 @@
 % Please edit documentation in R/our_theme.R
 \name{our_theme}
 \alias{our_theme}
-\title{Our ggplot2 theme}
+\title{Accessing our custom ggplot2 theme}
 \usage{
 our_theme(base_size = 11, base_family = "sans", horizontal = T)
 }
@@ -11,13 +11,15 @@ our_theme(base_size = 11, base_family = "sans", horizontal = T)
 
 \item{base_family}{passed to base theme}
 
-\item{horizontal}{boolean}
+\item{horizontal}{boolean, if true then we leave only vertical grid lines,
+or vice versa}
 }
 \description{
-Our ggplot2 theme
+Accessing our custom ggplot2 theme
 }
 \examples{
-{
+  library(ggplot2)
+  
   ggplot(mtcars) +
   geom_point(aes(x = mpg,
                  y = wt)) +
@@ -26,5 +28,4 @@ Our ggplot2 theme
        subtitle = 'This is the Subtitle',
        caption = 'This is the caption') +
   our_theme()
-}
 }

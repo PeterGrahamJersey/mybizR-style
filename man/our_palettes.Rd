@@ -4,10 +4,10 @@
 \alias{our_palettes}
 \title{Access our colour palettes as hexcodes}
 \usage{
-our_palettes(palette = NA, n = NA, reverse = F)
+our_palettes(palette = NA, n = NA, reverse = FALSE)
 }
 \arguments{
-\item{palette}{which palette should be accessed}
+\item{palette}{which palette should be accessed, should match a name from our_palettes_raw}
 
 \item{n}{number of colours to generate from palette}
 
@@ -20,4 +20,15 @@ If palette is NA, return the raw palette data. If n is NA, return
 }
 \description{
 Access our colour palettes as hexcodes
+}
+\examples{
+ our_palettes()
+ our_palettes('default')
+ our_palettes('default', reverse = TRUE)
+ our_palettes('default', 10)
+ our_palettes('default', 2)
+}
+\seealso{
+Other access our colours: \code{\link{our_colours}},
+  \code{\link{our_scale}}
 }

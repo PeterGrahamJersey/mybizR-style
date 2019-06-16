@@ -1,95 +1,85 @@
-#' Discrete colour scale constructor for our colours
-#'
+#' Create a discrete or continuous scale using our colours
+#' 
 #' @param palette Character name of palette in our_palettes_raw
 #' @param reverse Boolean indicating whether the palette should be reversed
 #' @param ... Additional arguments passed to the scale constructor
-#' 
-#' @examples
-#' \dontrun{
+#' @examples 
+#'   library(ggplot2)
+#'   
+#'   # Discrete Colour scale
 #'   ggplot(mtcars) + 
 #'     geom_point(aes(x = mpg, 
 #'                    y = wt, 
 #'                    color = as.character(carb))) + 
-#'     our_scale_color_d('hot')
-#' }
-#' 
-#' @export
-our_scale_colour_d <- function(palette = 'default', reverse = F, ...) {
-  our_scale(palette = palette, reverse = reverse, discrete = T, colour = T, ...)
-}
-
-#' @inheritParams our_scale_colour_d
-#' @describeIn our_scale_colour_d Alias for \code{our_scale_colour_d()}
-#' @export
-our_scale_color_d <- function(palette = 'default', reverse = F, ...) {
-  our_scale_colour_d(palette = palette, reverse = reverse, ...)
-}
-
-#' Continuous colour scale constructor for our colours
+#'     our_scale_color_d('default')
 #'
-#' @param palette Character name of palette in our_palettes_raw
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to the scale constructor
-#' @export
-#' @examples
-#' \dontrun{
+#'   # Continuous Colour Scale
 #'   ggplot(mtcars) + 
 #'     geom_point(aes(x = mpg, 
 #'                    y = wt, 
 #'                    color = wt)) + 
-#'     our_scale_color_c('hot')
-#' }
-our_scale_colour_c <- function(palette = 'default', reverse = F, ...) {
-  our_scale(palette = palette, reverse = reverse, discrete = F, colour = T, ...)
-}
-
-#' @describeIn our_scale_colour_c alias for \code{our_scale_colour_c()}
-#' @inheritParams our_scale_colour_c
-#' @export
-our_scale_color_c <- function(palette = 'default', reverse = F, ...) {
-  our_scale_colour_c(palette = palette, reverse = reverse, ...)
-}
-
-#' Discrete fill scale constructor for our colours
-#'
-#' @param palette Character name of palette in our_palettes_raw
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to the scale constructor
-#' 
-#' @examples
-#' \dontrun{
+#'     our_scale_color_c('default')
+#'     
+#'   # Discrete Fill Scale
 #'   ggplot(mtcars) + 
 #'     geom_col(aes(x = reorder(rownames(mtcars), mpg), 
 #'                  y = mpg, 
 #'                  fill = as.character(carb))) +
 #'     coord_flip() +             
-#'     our_scale_fill_d('hot') +
-#' }
-#' 
-#' @export
-our_scale_fill_d <- function(palette = 'default', reverse = F, ...) {
-  our_scale(palette = palette, reverse = reverse, discrete = T, colour = F, ...)
-}
-
-#' Continuous fill scale constructor for our colours
-#'
-#' @param palette Character name of palette in our_palettes_raw
-#' @param reverse Boolean indicating whether the palette should be reversed
-#' @param ... Additional arguments passed to the scale constructor
-#' 
-#' @examples
-#' \dontrun{
+#'     our_scale_fill_d('default') +
+#'     facet_wrap(~as.character(carb), scales='free_y')
+#'     
+#'   # Continuous fill scale  
 #'   ggplot(mtcars) + 
 #'     geom_col(aes(x = reorder(rownames(mtcars), mpg), 
 #'                  y = mpg, 
 #'                  fill = mpg)) +
 #'     coord_flip() +             
-#'     our_scale_fill_c('hot') +
-#' }
-#' 
+#'     our_scale_fill_c('default')
+#' @family access our colours
+#' @name our_scale
+NULL
+
+#' @describeIn our_scale discrete colour scale
+#' @inheritParams our_scale
+#' @export
+our_scale_colour_d <- function(palette = 'default', reverse = F, ...) {
+  our_scale_constructor(palette = palette, reverse = reverse, discrete = T, colour = T, ...)
+}
+
+#' @describeIn our_scale alias for discrete colour scale
+#' @inheritParams our_scale
+#' @export
+our_scale_color_d <- function(palette = 'default', reverse = F, ...) {
+  ouRstyle::our_scale_colour_d(palette = palette, reverse = reverse, ...)
+}
+
+#' @describeIn our_scale continuous colour scale
+#' @inheritParams our_scale
+#' @export
+our_scale_colour_c <- function(palette = 'default', reverse = F, ...) {
+  our_scale_constructor(palette = palette, reverse = reverse, discrete = F, colour = T, ...)
+}
+
+#' @describeIn our_scale alias for continuous colour scale
+#' @inheritParams our_scale
+#' @export
+our_scale_color_c <- function(palette = 'default', reverse = F, ...) {
+  ouRstyle::our_scale_colour_c(palette = palette, reverse = reverse, ...)
+}
+
+#' @describeIn our_scale discrete fill scale
+#' @inheritParams our_scale
+#' @export
+our_scale_fill_d <- function(palette = 'default', reverse = F, ...) {
+  our_scale_constructor(palette = palette, reverse = reverse, discrete = T, colour = F, ...)
+}
+
+#' @describeIn our_scale continuous fill scale
+#' @inheritParams our_scale
 #' @export
 our_scale_fill_c <- function(palette = 'default', reverse = F, ...) {
-  our_scale(palette = palette, reverse = reverse, discrete = F, colour = F, ...)
+  our_scale_constructor(palette = palette, reverse = reverse, discrete = F, colour = F, ...)
 }
 
 #' Scale constructor for our colors
@@ -103,7 +93,7 @@ our_scale_fill_c <- function(palette = 'default', reverse = F, ...) {
 #'            scale_fill_gradientn(), or scale_colour_gradientn() used
 #'            based on discrete and colour_or_fill
 #' @keywords internal
-our_scale <-  function(palette = 'default', reverse = F, discrete = T, colour = T, ...) {
+our_scale_constructor <-  function(palette = 'default', reverse = F, discrete = T, colour = T, ...) {
   pal <- our_palettes_interpolator(palette = palette, reverse = reverse)
   pal_name <- paste0('our_', palette)
   if (discrete) {

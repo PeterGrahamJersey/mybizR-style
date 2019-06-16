@@ -1,13 +1,14 @@
 Package: ouRstyle
 Type: Package
 Title: ouRstyle: your colours and ggplot2 theme
-Version: 0.1
+Version: 1.0
 Author: Peter Graham
 Maintainer: Peter Graham <petergrahamjersey@gmail.com>
 Description: ouRstyle provides a base for users to customise and access a
     colour palette and ggplot theme.
-License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: ggplot2
+Requires: R (>= 2.10)
+License: file LICENSE
 RoxygenNote: 6.0.1

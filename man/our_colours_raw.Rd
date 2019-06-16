@@ -16,8 +16,6 @@ our_colours_raw
 Our colours.
 }
 \examples{
-{
  our_colours_raw
-}
 }
 \keyword{datasets}
