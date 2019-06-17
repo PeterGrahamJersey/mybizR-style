@@ -23,7 +23,7 @@ our_colours <- function(...) {
   if (is.null(colours)) {
     return(ouRstyle::our_colours_raw)
   }
-  ouRstyle::our_colours_raw[colours]
+  unname(ouRstyle::our_colours_raw[colours])
 }
 
 #' @describeIn our_colours alias for \code{our_colours()}
