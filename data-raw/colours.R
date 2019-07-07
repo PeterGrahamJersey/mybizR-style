@@ -23,4 +23,4 @@ our_palettes_raw <- list(
   `hot`   = c('yellow', 'orange')
 )
 
-devtools::use_data(our_colours_raw, our_palettes_raw, overwrite = T)
+usethis::use_data(our_colours_raw, our_palettes_raw, overwrite = T)
